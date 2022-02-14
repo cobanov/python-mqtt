@@ -1,7 +1,8 @@
 import paho.mqtt.client as mqtt
-from random import randrange, uniform
 import time
-import time
+import datetime
+
+
 import board
 import adafruit_dht
 
@@ -14,12 +15,11 @@ client.connect(mqttBroker)
 
 while True:
     try:
+        timestamp = datetime.datetime.now()
         temperature_c = dhtDevice.temperature
         temperature_f = temperature_c * (9 / 5) + 32
         humidity = dhtDevice.humidity
-        payload = (
-            f"Temp: {temperature_f} F / {temperature_c} C    Humidity: {humidity} "
-        )
+        payload = f"Temp: {temperature_f} F / {temperature_c} C    Humidity: {humidity}     Time {timestamp}"
         client.publish("Cobanov", payload)
         print(payload)
 
