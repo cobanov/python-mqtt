@@ -1,6 +1,6 @@
 # Python MQTT RPi
 
-Foobar is a Python library for dealing with word pluralization.
+MQTT Service for Raspberry Pi using Python
 
 ```mermaid
   flowchart LR;
